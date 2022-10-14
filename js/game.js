@@ -1,18 +1,15 @@
 const grid = document.querySelector('.grid');
-const spanPlayer = document.querySelector('.player');
+//const spanPlayer = document.querySelector('.player');
 const timer = document.querySelector('.timer');
 
 const characters = [
-  'beth',
-  'jerry',
-  'jessica',
-  'morty',
-  'pessoa-passaro',
-  'pickle-rick',
-  'rick',
-  'summer',
-  'meeseeks',
-  'scroopy',
+  'img1',
+  'img2',
+  'img3',
+  'img4',
+  'img5',
+  'img6',
+  'img7'
 ];
 
 const createElement = (tag, className) => {
@@ -27,9 +24,13 @@ let secondCard = '';
 const checkEndGame = () => {
   const disabledCards = document.querySelectorAll('.disabled-card');
 
-  if (disabledCards.length === 20) {
+  if (disabledCards.length === 14) {
     clearInterval(this.loop);
-    alert(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi: ${timer.innerHTML}`);
+    
+    setTimeout(() => {
+      window.location = './finish.html';
+    }, 1500);
+    //alert(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi: ${timer.innerHTML}`);
   }
 }
 
@@ -120,7 +121,7 @@ const startTimer = () => {
 }
 
 window.onload = () => {
-  spanPlayer.innerHTML = localStorage.getItem('player');
-  startTimer();
+  //spanPlayer.innerHTML = localStorage.getItem('player');
+  //startTimer();
   loadGame();
 }
