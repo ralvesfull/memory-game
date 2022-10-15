@@ -86,7 +86,7 @@ const revealCard = ({ target }) => {
 const createCard = (character) => {
 
   const card = createElement('div', 'card');
-  const front = createElement('div', 'face front');
+  const front = createElement('div', 'face');
   const back = createElement('div', 'face back');
 
   front.style.backgroundImage = `url('../images/${character}.png')`;
@@ -94,9 +94,26 @@ const createCard = (character) => {
   card.appendChild(front);
   card.appendChild(back);
 
+  back.style.display = 'none';
+  
   card.addEventListener('click', revealCard);
   card.setAttribute('data-character', character)
 
+
+  setTimeout(()=>{
+    front.style.display = 'none';
+    back.style.display = 'block';
+    
+  
+  }, 4000)
+
+  setTimeout(()=>{
+    
+    front.classList.add('front')
+    front.style.display = 'block';
+    
+  
+  }, 4200)
   return card;
 }
 
@@ -108,7 +125,11 @@ const loadGame = () => {
   shuffledArray.forEach((character) => {
     const card = createCard(character);
     grid.appendChild(card);
+    console.log(character, card)
   });
+
+
+
 }
 
 const startTimer = () => {
