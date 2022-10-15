@@ -96,8 +96,7 @@ const createCard = (character) => {
 
   back.style.display = 'none';
   
-  card.addEventListener('click', revealCard);
-  card.setAttribute('data-character', character)
+  
 
 
   setTimeout(()=>{
@@ -111,7 +110,8 @@ const createCard = (character) => {
     
     front.classList.add('front')
     front.style.display = 'block';
-    
+    card.addEventListener('click', revealCard);
+  card.setAttribute('data-character', character)
   
   }, 4200)
   return card;
